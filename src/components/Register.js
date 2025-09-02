@@ -1,25 +1,26 @@
 import { useState } from "react";
-import React from 'react';
+import { useNavigate } from "react-router-dom"; // <-- for redirect after register
 import './Form.css';
 
 function Register() {
+  const navigate = useNavigate();
+
   const [formData, setFormData] = useState({
     name: "",
     password: "",
     email: "",
-    role: "employee"
+    role: "employee",
+    secretKey: ""
   });
 
   const [errorMessage, setErrorMessage] = useState('');
 
   function handleChange(e) {
-    console.log("Input changed:", e.target.name, e.target.value);
     setFormData({ ...formData, [e.target.name]: e.target.value });
   }
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    console.log('Submitting form data:', formData);
 
     try {
       const res = await fetch('http://localhost:5000/api/auth/register', {
@@ -29,16 +30,14 @@ function Register() {
       });
 
       const data = await res.json();
-      console.log(data);
 
       if (!res.ok) {
-        // Show error message from backend
         setErrorMessage(data.message || "Registration failed.");
         return;
       }
 
-      // On success
-      alert("✅ Registration successful!");
+      // ✅ On success
+      alert("✅ Registration successful! Please login.");
       setErrorMessage('');
       setFormData({
         name: "",
@@ -46,6 +45,10 @@ function Register() {
         email: "",
         role: "employee"
       });
+
+      // 🔀 Redirect to login page
+      navigate("/login");
+
     } catch (error) {
       console.error('Error during registration:', error);
       setErrorMessage("Something went wrong. Please try again.");
@@ -97,17 +100,27 @@ function Register() {
             />
           </div>
 
+          {/* ✅ Role Dropdown */}
           <div className="mb-3">
             <label className="form-label"><strong>Role</strong></label>
-            <input
+            <select
               name="role"
-              type="text"
               className="form-control"
-              placeholder="employee or admin"
               value={formData.role}
               onChange={handleChange}
               required
-            />
+            >
+              <option value="employee">Employee</option>
+              <option value="admin">Admin</option>
+            </select>
+            {formData.role === "admin" && (
+        <input
+          type="text"
+          name="secretKey"
+          placeholder="Enter Admin Secret Key"
+          onChange={handleChange}
+        />
+      )}
           </div>
 
           {/* Error message */}

@@ -18,15 +18,25 @@ function Login() {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(formData)
+        
       });
+  console.log("Login data sending:", formData);
 
       const data = await res.json();
-      console.log(data);
+      console.log("Login response:", data);
 
       if (res.ok && data.token) {
-        localStorage.setItem('user', JSON.stringify(data.user));
-        localStorage.setItem('token', data.token);
-        navigate('/dashboard');
+        // ✅ Save token + user data
+        localStorage.setItem("auth", JSON.stringify(data));
+        localStorage.setItem("token", data.token);
+
+        // ✅ Redirect based on role
+        if (data.user?.role === "admin") {
+          navigate("/admin");
+        } else {
+          navigate("/dashboard");
+        }
+
       } else {
         alert(data.message || 'Invalid credentials');
       }
@@ -47,6 +57,7 @@ function Login() {
             <input 
               name="email"
               type="email"
+              autoComplete='off'
               className="form-control"
               placeholder="you@example.com"
               value={formData.email}
@@ -60,6 +71,7 @@ function Login() {
             <input
               name="password"
               type="password"
+              autoComplete='new-password'
               className="form-control"
               placeholder="••••••••"
               value={formData.password}

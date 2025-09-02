@@ -49,7 +49,7 @@ const LeaveRequests = () => {
     if (searchTerm) {
       updated = updated.filter(
         (leave) =>
-          leave.employeeId.toString().includes(searchTerm.toLowerCase()) ||
+          leave.userId.toString().includes(searchTerm.toLowerCase()) ||
           leave.reason.toLowerCase().includes(searchTerm.toLowerCase())
       );
     }
@@ -144,7 +144,7 @@ const LeaveRequests = () => {
                 filteredLeaves.map((leave, index) => (
                   <tr key={index}>
                     <td>{index + 1}</td>
-                    <td>{leave.employeeId}</td>
+                    <td>{leave.userId }</td>
                     <td>{leave.reason}</td>
                     <td>{new Date(leave.fromDate).toLocaleDateString()}</td>
                     <td>{new Date(leave.toDate).toLocaleDateString()}</td>

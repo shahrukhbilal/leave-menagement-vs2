@@ -1,12 +1,12 @@
 import React from "react";
-import bgImage from "./Myassets/benjamin-lehman-i3VR6GK6Pfk-unsplash.jpg";
+import bgImage from "./Myassets/HomePage2.jpg";
 import Footer from "./Footer";
 
 function Home() {
   const sectionStyle = {
     backgroundImage: `url(${bgImage})`,
     backgroundSize: "cover",
-    backgroundPosition: "center",
+    backgroundPosition: 'center',
     height: "100vh",
     position: "relative",
     color: "white",
@@ -17,9 +17,9 @@ function Home() {
     position: "absolute",
     top: 0,
     left: 0,
-    width: "100%",
+    width: "",
     height: "100%",
-    backgroundColor: "rgba(110, 106, 106, 0.4)", // 🔴 This is the transparent overlay
+    backgroundColor: "rgba(24, 23, 23, 0.4)", // 🔴 This is the transparent overlay
     zIndex: 2,
   };
 
@@ -34,8 +34,9 @@ function Home() {
     width: "600px",
     margin: 'auto',
     textAlign: "center",
-    top: "10%",
-    marginLeft: '60%'
+    top: "-4%",
+    right: '30%',
+    marginright: '60%',
      
   };
 
@@ -48,7 +49,7 @@ function Home() {
 
         {/* 🟡 Actual content */}
         <div style={contentStyle}>
-          <h1>Welcome to Our Leave Management System</h1>
+          <h1 >Welcome to Our Leave Management System</h1>
           <p>
             Our Leave Management System is a comprehensive tool designed to
             simplify and automate the process of requesting and approving
