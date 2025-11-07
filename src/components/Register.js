@@ -47,7 +47,7 @@ function Register() {
       });
 
       // 🔀 Redirect to login page
-      navigate("/login");
+      navigate("/DashBoard.js");
 
     } catch (error) {
       console.error('Error during registration:', error);
@@ -56,11 +56,11 @@ function Register() {
   };
 
   return (
-    <div className="container mt-5 d-flex justify-content-center align-items-center" style={{ minHeight: '80vh' }}>
+    <div className="container mt-1 d-flex justify-content-left align-items-left" style={{ minHeight: '80vh' }}>
       <div className="card shadow p-4" style={{ maxWidth: '450px', width: '100%' }}>
         <h3 className="text-center mb-4"><strong>📝 Register</strong></h3>
 
-        <form onSubmit={handleSubmit}>
+        <form onSubmit={handleSubmit} autoComplete="off">
           <div className="mb-3">
             <label className="form-label"><strong>Name</strong></label>
             <input
@@ -79,6 +79,7 @@ function Register() {
             <input
               name="email"
               type="email"
+               autoComplete="new-email"
               className="form-control"
               placeholder="you@example.com"
               value={formData.email}
@@ -93,6 +94,7 @@ function Register() {
               name="password"
               type="password"
               className="form-control"
+               autoComplete="new-password"
               placeholder="••••••••"
               value={formData.password}
               onChange={handleChange}

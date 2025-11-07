@@ -1,6 +1,8 @@
 import React from 'react';
 import { useNavigate, Link } from 'react-router-dom';
 import 'bootstrap/dist/css/bootstrap.min.css';
+import { FaUserShield } from "react-icons/fa";
+import { FaCalendarAlt } from "react-icons/fa";
 
 function Navbar() {
   const navigate = useNavigate();
@@ -16,7 +18,8 @@ function Navbar() {
   }
 
   return (
-    <nav className="navbar navbar-expand-lg navbar-dark bg-primary px-4">
+    <nav className="navbar navbar-expand-lg navbar-dark gap-2 bg-dark px-4">
+      <FaCalendarAlt size={24} style={{color: "#61DBFB"}} />
       <Link className="navbar-brand fw-bold" to="/">Leave Portal</Link>
       <button
         className="navbar-toggler"
@@ -39,11 +42,9 @@ function Navbar() {
           {!token ? (
             <>
               <li className="nav-item">
-                <Link className="nav-link" to="/register">Login</Link>
+                <Link className="nav-link" to="/login">Login</Link>
               </li>
-              <li className="nav-item">
-                <Link className="nav-link" to="/register">Register</Link>
-              </li>
+             
             </>
           ) : (
             <>
@@ -58,7 +59,10 @@ function Navbar() {
         </ul>
 
         <div className="d-flex">
-          <button className="btn btn-warning" onClick={handleAdmin}>Admin</button>
+          <button className="btn btn-dark d-flex align-items-center gap-2" onClick={handleAdmin}>
+  <FaUserShield size={20} style={{color: "#61DBFB"}} /> Admin
+</button>
+
         </div>
       </div>
     </nav>

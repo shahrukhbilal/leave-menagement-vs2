@@ -1,65 +1,73 @@
 import React from "react";
-import bgImage from "./Myassets/HomePage2.jpg";
+import { motion } from "framer-motion";
+import bgImage from "./Myassets/home3.jpeg";
 import Footer from "./Footer";
+import Register from "./components/Register";
 
 function Home() {
-  const sectionStyle = {
-    backgroundImage: `url(${bgImage})`,
-    backgroundSize: "cover",
-    backgroundPosition: 'center',
-    height: "100vh",
-    position: "relative",
-    color: "white",
-  };
-
-  const overlayStyle = {
-    
-    position: "absolute",
-    top: 0,
-    left: 0,
-    width: "",
-    height: "100%",
-    backgroundColor: "rgba(24, 23, 23, 0.4)", // 🔴 This is the transparent overlay
-    zIndex: 2,
-  };
-
-  const contentStyle = {
-    position: "relative",
-    zIndex: 2,
-    display: "flex",
-    flexDirection: "column",
-    justifyContent: "center",
-    alignItems: "center",
-    padding: "40px",
-    width: "600px",
-    margin: 'auto',
-    textAlign: "center",
-    top: "-4%",
-    right: '30%',
-    marginright: '60%',
-     
-  };
-
   return (
     <div>
-      
-      <section style={sectionStyle}>
-        {/* 🟣 Transparent overlay */}
-        <div style={overlayStyle}></div>
+      {/* 🔹 Hero Section */}
+      <section
+        className="d-flex align-items-center justify-content-center text-light"
+        style={{
+          backgroundImage: `url(${bgImage})`,
+          backgroundSize: "cover",
+          backgroundPosition: "center",
+          backgroundRepeat: "no-repeat",
+          minHeight: "100vh",
+          position: "relative",
+        }}
+      >
+        {/* 🔹 Dark Overlay */}
+        <div
+          style={{
+            position: "absolute",
+            inset: 0,
+            backgroundColor: "rgba(0,0,0,0.5)",
+          }}
+        ></div>
 
-        {/* 🟡 Actual content */}
-        <div style={contentStyle}>
-          <h1 >Welcome to Our Leave Management System</h1>
-          <p>
-            Our Leave Management System is a comprehensive tool designed to
-            simplify and automate the process of requesting and approving
-            leaves within an organization. It allows employees to easily submit
-            leave applications while providing managers with a streamlined
-            workflow to review and approve or reject requests.
-          </p>
+        {/* 🔹 Main Content */}
+        <div className="container position-relative z-3">
+          <div className="row align-items-center">
+            
+            {/* LEFT: Welcome Text */}
+            <motion.div
+              initial={{ opacity: 0, x: -80 }}
+              animate={{ opacity: 1, x: 0 }}
+              transition={{ duration: 1 }}
+              className="col-md-6 mb-4 mb-md-0 text-start"
+            >
+              <h1 className="display-5 fw-bold mb-3 text-shadow">
+                Welcome to Our Leave Management System
+              </h1>
+              <p className="lead text-light">
+                Our Leave Management System simplifies and automates the process of
+                requesting and approving leaves within an organization. Employees can
+                easily apply for leave, while managers can review and approve requests
+                efficiently.
+              </p>
+            </motion.div>
+
+            {/* RIGHT: Register Form */}
+            <motion.div
+              initial={{ opacity: 0, x: 80 }}
+              animate={{ opacity: 1, x: 0 }}
+              transition={{ duration: 1 }}
+              className="col-md-6 d-flex justify-content-center justify-content-md-end"
+            >
+              <div className="bg-dark bg-opacity-50 p-4 rounded-4 shadow-lg" style={{ minWidth: "350px" }}>
+                <Register />
+              </div>
+            </motion.div>
+
+          </div>
         </div>
       </section>
-      <Footer></Footer>
+
+      {/* 🔹 Footer */}
+      <Footer />
     </div>
   );
 }
