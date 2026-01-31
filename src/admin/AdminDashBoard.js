@@ -1,6 +1,8 @@
 // 📦 React and Hooks
 import React, { useEffect, useState } from "react";
 import { Link, Outlet, useLocation } from "react-router-dom";
+
+// Imports Bootstrap’s CSS for ready-to-use styling and grid system.
 import "bootstrap/dist/css/bootstrap.min.css";
 
 // 📸 Images
@@ -8,15 +10,20 @@ import ManagerImg from "../Myassets/ManagerPic.jpeg";
 import HomeIcon from "../Myassets/HomeIcon.jpeg";
 
 function AdminDashBoard() {
+  //(localStorage.getItem("user")):: getting user info from browser's local Storage(saved after login)
+  // JSON.parse :: converts user's info string to a usable object
   const user = JSON.parse(localStorage.getItem("user"));
+  //gives route info, e.g. { pathname: "/admin/leaves" }.
   const location = useLocation();
+  // conditional check if the pathname is "/admin"
   const isRoot = location.pathname === "/admin";
 
+  // use of react hook useState to store and update time , events, and todays evnts
   const [currentTime, setCurrentTime] = useState(new Date());
   const [todaysEvents, setTodaysEvents] = useState([]);
   const [showEvents, setShowEvents] = useState(false);
 
-  // ⏱️ Update Time Every Second
+  //  use of react hook useEffect to ⏱️ Update Time Every Second
   useEffect(() => {
     const timer = setInterval(() => {
       setCurrentTime(new Date());
@@ -24,7 +31,7 @@ function AdminDashBoard() {
     return () => clearInterval(timer);
   }, []);
 
-  // 📅 Fetch Today's Events
+  // use of react hook useEffect to 📅 Fetch Today's Events
   useEffect(() => {
     const fetchEvents = async () => {
       try {
@@ -46,6 +53,7 @@ function AdminDashBoard() {
     fetchEvents();
   }, []);
 
+  // converts date and time to human readable formatt
   const formattedDate = currentTime.toLocaleDateString();
   const formattedTime = currentTime.toLocaleTimeString();
 
@@ -59,19 +67,29 @@ function AdminDashBoard() {
           <hr />
           <ul className="nav flex-column mt-4">
             <li className="nav-item">
-              <Link className="nav-link text-white" to="/admin">🏠 Home</Link>
+              <Link className="nav-link text-white" to="/admin">
+                🏠 Home
+              </Link>
             </li>
             <li className="nav-item">
-              <Link className="nav-link text-white" to="/admin/leaves">📄 Leave Requests</Link>
+              <Link className="nav-link text-white" to="/admin/leaves">
+                📄 Leave Requests
+              </Link>
             </li>
             <li className="nav-item">
-              <Link className="nav-link text-white" to="/admin/attendance">📋 Attendance</Link>
+              <Link className="nav-link text-white" to="/admin/attendance">
+                📋 Attendance
+              </Link>
             </li>
             <li className="nav-item">
-              <Link className="nav-link text-white" to="/admin/calendar">📅 Calendar</Link>
+              <Link className="nav-link text-white" to="/admin/calendar">
+                📅 Calendar
+              </Link>
             </li>
             <li className="nav-item">
-              <Link className="nav-link text-white" to="/admin/events">🎉 Events</Link>
+              <Link className="nav-link text-white" to="/admin/events">
+                🎉 Events
+              </Link>
             </li>
           </ul>
         </div>
