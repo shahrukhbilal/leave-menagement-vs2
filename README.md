@@ -52,7 +52,17 @@ Employees can **apply for leave**, track their leave balance, and admins can **r
 
 ## 📸 Screenshots / Demo
 
-**Admin Dashboard (Calendar & Events):**  
+**Home Page:**  
+![Home Page](https://res.cloudinary.com/dvjkqt391/image/upload/v1770109149/Home_page_sprbzn.png)
+
+**Apply Leave Page:**  
+![Apply Leave Page](https://res.cloudinary.com/dvjkqt391/image/upload/v1770110053/Apply_leave_but0vi.png)
+
+**Leave Status Page:**  
+![Leave Status Page](https://res.cloudinary.com/dvjkqt391/image/upload/v1770110315/Leave_Status_Page_u8z2dn.png)
+
+
+**Admin Dashboard):**  
 ![Admin Dashboard](https://res.cloudinary.com/dvjkqt391/image/upload/v1769844679/LMS_SS_hgksu1.png)  
 
 **Employees Leave Page:**  
@@ -64,8 +74,7 @@ Employees can **apply for leave**, track their leave balance, and admins can **r
 **Events Page:**  
 ![Events Page](https://res.cloudinary.com/dvjkqt391/image/upload/v1770108417/Event_SS_lb7oso.png)  
 
-**Home Page:**  
-![Home Page](https://res.cloudinary.com/dvjkqt391/image/upload/v1770109149/Home_page_sprbzn.png)  
+  
 
 > Add GIFs if possible for interactive sections like calendar scheduling.
 
