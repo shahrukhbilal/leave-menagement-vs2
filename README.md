@@ -10,21 +10,27 @@
 ## 🌟 Overview  
 
 A **modern and responsive Leave Management System** built with **React** (frontend) and **Node.js + Express + MongoDB** (backend).  
-Employees can **apply for leave**, track leave balance, and admins can **review and manage requests** through an intuitive dashboard.  
+
+Employees can **apply for leave**, track their leave balance, and admins can **review and manage requests**, **schedule events**, and **mark attendance** using a powerful and intuitive dashboard.  
 
 ---
 
 ## ✨ Key Features  
 
-- 🖌 **Modern & Responsive UI** – Works seamlessly on all devices  
-- 🧭 **Dynamic Dashboard** – Employee & Admin panels with easy navigation  
-- 📄 **Apply & Track Leaves** – Employees can submit and view their leaves  
-- 🔑 **Authentication** – Login/Register system for employees & admins  
-- 🛠 **Admin Panel** – Approve/reject leaves, view all requests  
-- 📊 **Leave History** – Detailed leave records for employees  
-- 📍 **Contact / Support Page** – Optional form for queries  
-- ☁ **Database Integration** – MongoDB for scalable and fast data storage  
-- 🔗 **Consistent Layout** – Header, sidebar, and footer across all pages  
+- 🖌 **Modern & Responsive UI** – Works seamlessly on desktop, tablet, and mobile  
+- 🧭 **Dynamic Dashboard** – Separate panels for Employees & Admins with easy navigation  
+- 📄 **Apply & Track Leaves** – Employees can submit leave requests and view leave history  
+- 🛠 **Admin Panel Features:**  
+  - Approve / Reject leave requests  
+  - View all leave requests and employee leave history  
+  - **Schedule Events** using integrated calendar  
+  - **Mark Attendance** for employees  
+  - Manage users and leave policies  
+- 🔑 **Authentication** – Secure login/register system for employees & admins  
+- 📊 **Leave Reports & History** – Detailed reporting for better management  
+- 📍 **Contact / Support Page** – Optional form for employee queries  
+- ☁ **Database Integration** – MongoDB for fast and scalable data storage  
+- 🔗 **Consistent Layout** – Header, sidebar, and footer across all pages
 
 ---
 
@@ -44,6 +50,32 @@ Employees can **apply for leave**, track leave balance, and admins can **review 
 
 ---
 
-## 📩 Contact  
+## 📸 Screenshots / Demo
 
-For queries or collaboration: southsec021karachi@gmail.com
+**Employee Dashboard:**  
+![Employee Dashboard](https://res.cloudinary.com/dvjkqt391/image/upload/v1770108417/Event_SS_lb7oso.png)  
+
+**Admin Dashboard (Calendar & Events):**  
+![Admin Dashboard](Add_Link_Here)  
+
+**Attendance & Leave Requests:**  
+![Attendance Page](Add_Link_Here)  
+
+> Add GIFs if possible for interactive sections like calendar scheduling.
+
+---
+
+## 📦 Run Locally
+
+```bash
+# Clone the repo
+git clone https://github.com/shahrukhbilal/leave-menagement-vs2.git
+
+# Navigate into project folder
+cd leave-menagement-vs2
+
+# Install dependencies
+npm install
+
+# Start development server
+npm start
