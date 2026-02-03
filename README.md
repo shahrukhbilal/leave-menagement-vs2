@@ -56,7 +56,7 @@ Employees can **apply for leave**, track their leave balance, and admins can **r
 ![Admin Dashboard](https://res.cloudinary.com/dvjkqt391/image/upload/v1769844679/LMS_SS_hgksu1.png)  
 
 **Employees Leave Page:**  
-!Leave Requests Page[](https://res.cloudinary.com/dvjkqt391/image/upload/v1770108848/Leaves_SS_m1wnyr.png) 
+![Leave Requests Page](https://res.cloudinary.com/dvjkqt391/image/upload/v1770108848/Leaves_SS_m1wnyr.png) 
 
 **Attendance Page:**  
 ![Attendance Page](https://res.cloudinary.com/dvjkqt391/image/upload/v1770108642/Attendance_ss_raixwm.png)  
