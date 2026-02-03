@@ -45,8 +45,8 @@ Employees can **apply for leave**, track their leave balance, and admins can **r
 
 ## 🚀 Live Links  
 
-- **Frontend (Vercel):** [Your Frontend Link](https://your-frontend-demo-link.com)  
-- **Backend (Railway):** [Your Backend Link](https://your-backend-link.com)  
+- **Frontend (Vercel):** [Deployment Pending](https://your-frontend-demo-link.com)  
+- **Backend (Railway):** [Deployment Pending](https://your-backend-link.com)  
 
 ---
 
