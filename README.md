@@ -56,10 +56,10 @@ Employees can **apply for leave**, track their leave balance, and admins can **r
 ![Employee Dashboard](https://res.cloudinary.com/dvjkqt391/image/upload/v1770108417/Event_SS_lb7oso.png)  
 
 **Admin Dashboard (Calendar & Events):**  
-![Admin Dashboard](Add_Link_Here)  
+![Admin Dashboard](https://res.cloudinary.com/dvjkqt391/image/upload/v1769844679/LMS_SS_hgksu1.png)  
 
 **Attendance & Leave Requests:**  
-![Attendance Page](Add_Link_Here)  
+![Attendance Page](https://res.cloudinary.com/dvjkqt391/image/upload/v1770108642/Attendance_ss_raixwm.png)  
 
 > Add GIFs if possible for interactive sections like calendar scheduling.
 
