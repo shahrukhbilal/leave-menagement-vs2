@@ -1,70 +1,96 @@
-# Getting Started with Create React App
+# 🗂 Leave Management System (Version 2)
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+[![Frontend Live Demo](https://img.shields.io/badge/Frontend-Live%20Demo-blue?style=for-the-badge&logo=vercel)](https://your-frontend-demo-link.com)  
+[![Backend API](https://img.shields.io/badge/Backend-API%20Live-green?style=for-the-badge&logo=railway)](https://your-backend-link.com)  
+[![Made with React](https://img.shields.io/badge/Made%20With-React-blue?style=for-the-badge&logo=react)](https://reactjs.org/)  
+[![Backend](https://img.shields.io/badge/Backend-Node.js-green?style=for-the-badge&logo=node.js)](https://nodejs.org/)  
 
-## Available Scripts
+---
 
-In the project directory, you can run:
+## 🌟 Overview  
 
-### `npm start`
+A **modern and responsive Leave Management System** built with **React** (frontend) and **Node.js + Express + MongoDB** (backend).  
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+Employees can **apply for leave**, track their leave balance, and admins can **review and manage requests**, **schedule events**, and **mark attendance** using a powerful and intuitive dashboard.  
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+---
 
-### `npm test`
+## ✨ Key Features  
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+- 🖌 **Modern & Responsive UI** – Works seamlessly on desktop, tablet, and mobile  
+- 🧭 **Dynamic Dashboard** – Separate panels for Employees & Admins with easy navigation  
+- 📄 **Apply & Track Leaves** – Employees can submit leave requests and view leave history  
+- 🛠 **Admin Panel Features:**  
+  - Approve / Reject leave requests  
+  - View all leave requests and employee leave history  
+  - **Schedule Events** using integrated calendar  
+  - **Mark Attendance** for employees  
+  - Manage users and leave policies  
+- 🔑 **Authentication** – Secure login/register system for employees & admins  
+- 📊 **Leave Reports & History** – Detailed reporting for better management  
+- 📍 **Contact / Support Page** – Optional form for employee queries  
+- ☁ **Database Integration** – MongoDB for fast and scalable data storage  
+- 🔗 **Consistent Layout** – Header, sidebar, and footer across all pages
 
-### `npm run build`
+---
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+## 🛠 Tech Stack  
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+**Frontend:** React + Tailwind CSS  
+**Backend:** Node.js + Express.js  
+**Database:** MongoDB  
+**Hosting / Deployment:** Vercel (Frontend) + Railway (Backend)  
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+---
 
-### `npm run eject`
+## 🚀 Live Links  
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+- **Frontend (Vercel):** [Deployment Pending](https://your-frontend-demo-link.com)  
+- **Backend (Railway):** [Deployment Pending](https://your-backend-link.com)  
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+---
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+## 📸 Screenshots / Demo
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+**Home Page:**  
+![Home Page](https://res.cloudinary.com/dvjkqt391/image/upload/v1770109149/Home_page_sprbzn.png)
 
-## Learn More
+**Apply Leave Page:**  
+![Apply Leave Page](https://res.cloudinary.com/dvjkqt391/image/upload/v1770110053/Apply_leave_but0vi.png)
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+**Leave Status Page:**  
+![Leave Status Page](https://res.cloudinary.com/dvjkqt391/image/upload/v1770110315/Leave_Status_Page_u8z2dn.png)
 
-To learn React, check out the [React documentation](https://reactjs.org/).
 
-### Code Splitting
+**Admin Dashboard):**  
+![Admin Dashboard](https://res.cloudinary.com/dvjkqt391/image/upload/v1769844679/LMS_SS_hgksu1.png)  
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+**Employees Leave Page:**  
+![Leave Requests Page](https://res.cloudinary.com/dvjkqt391/image/upload/v1770108848/Leaves_SS_m1wnyr.png) 
 
-### Analyzing the Bundle Size
+**Attendance Page:**  
+![Attendance Page](https://res.cloudinary.com/dvjkqt391/image/upload/v1770108642/Attendance_ss_raixwm.png)  
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+**Events Page:**  
+![Events Page](https://res.cloudinary.com/dvjkqt391/image/upload/v1770108417/Event_SS_lb7oso.png)  
 
-### Making a Progressive Web App
+  
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+> Add GIFs if possible for interactive sections like calendar scheduling.
 
-### Advanced Configuration
+---
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
+## 📦 Run Locally
 
-### Deployment
+```bash
+# Clone the repo
+git clone https://github.com/shahrukhbilal/leave-menagement-vs2.git
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
+# Navigate into project folder
+cd leave-menagement-vs2
 
-### `npm run build` fails to minify
+# Install dependencies
+npm install
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+# Start development server
+npm start
