@@ -2,35 +2,48 @@ import React, { useState } from 'react';
 import { motion } from 'framer-motion';
 
 const ApplyLeavePage = () => {
+  // Store selected leave dates and reason
   const [fromDate, setFromDate] = useState('');
   const [toDate, setToDate] = useState('');
   const [reason, setReason] = useState('');
 
+  // ----------------------------------
+  // Handle leave form submission
+  // ----------------------------------
   const handleSubmit = async (e) => {
-    e.preventDefault();
+    e.preventDefault(); // Prevent default form reload
 
+    // Get logged-in user info from localStorage
     const auth = JSON.parse(localStorage.getItem('auth'));
     const userId = auth?.user?._id;
     const token = localStorage.getItem('token');
 
+    // Safety check: user must be logged in
     if (!userId) {
-      alert("User not found. Please login again.");
+      alert('User not found. Please login again.');
       return;
     }
 
     try {
+      // Send leave request to backend
       const res = await fetch('http://localhost:5000/api/leaves', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
-          Authorization: `Bearer ${token}`,
+          Authorization: `Bearer ${token}`, // JWT token for authentication
         },
-        body: JSON.stringify({ userId, reason, fromDate, toDate }),
+        body: JSON.stringify({
+          userId,
+          reason,
+          fromDate,
+          toDate,
+        }),
       });
 
       const data = await res.json();
 
       if (res.ok) {
+        // Success feedback and reset form
         alert('✅ Leave submitted!');
         setReason('');
         setFromDate('');
@@ -45,6 +58,7 @@ const ApplyLeavePage = () => {
   };
 
   return (
+    // Full-page centered layout
     <div
       style={{
         minHeight: '100vh',
@@ -55,6 +69,7 @@ const ApplyLeavePage = () => {
         padding: '20px',
       }}
     >
+      {/* Main card with entry animation */}
       <motion.div
         initial={{ y: -50, opacity: 0 }}
         animate={{ y: 0, opacity: 1 }}
@@ -68,16 +83,30 @@ const ApplyLeavePage = () => {
           maxWidth: '450px',
         }}
       >
+        {/* Page heading animation */}
         <motion.h2
           initial={{ scale: 0.8, opacity: 0 }}
           animate={{ scale: 1, opacity: 1 }}
           transition={{ duration: 0.5 }}
-          style={{ textAlign: 'center', marginBottom: '20px', color: '#333' }}
+          style={{
+            textAlign: 'center',
+            marginBottom: '20px',
+            color: '#333',
+          }}
         >
           📝 Apply for Leave
         </motion.h2>
 
-        <form onSubmit={handleSubmit} style={{ display: 'flex', flexDirection: 'column', gap: '15px' }}>
+        {/* Leave application form */}
+        <form
+          onSubmit={handleSubmit}
+          style={{
+            display: 'flex',
+            flexDirection: 'column',
+            gap: '15px',
+          }}
+        >
+          {/* From date input */}
           <motion.div
             initial={{ x: -20, opacity: 0 }}
             animate={{ x: 0, opacity: 1 }}
@@ -98,6 +127,7 @@ const ApplyLeavePage = () => {
             />
           </motion.div>
 
+          {/* To date input */}
           <motion.div
             initial={{ x: 20, opacity: 0 }}
             animate={{ x: 0, opacity: 1 }}
@@ -118,6 +148,7 @@ const ApplyLeavePage = () => {
             />
           </motion.div>
 
+          {/* Reason textarea */}
           <motion.div
             initial={{ y: 20, opacity: 0 }}
             animate={{ y: 0, opacity: 1 }}
@@ -140,6 +171,7 @@ const ApplyLeavePage = () => {
             />
           </motion.div>
 
+          {/* Submit button with hover/tap animation */}
           <motion.button
             type="submit"
             whileHover={{ scale: 1.05 }}

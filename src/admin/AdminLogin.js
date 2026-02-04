@@ -8,7 +8,7 @@ const AdminLogin = () => {
     email: "",
     password: "",
   });
-
+// react hooks
   const [error, setError] = useState("");
   const navigate = useNavigate();
 
@@ -31,7 +31,6 @@ const AdminLogin = () => {
       });
 
       const data = await res.json();
-      console.log("LOGIN RESPONSE:", data);
       if (res.ok && data.user.role === "admin") {
         localStorage.setItem("token", data.token);
         localStorage.setItem("user", JSON.stringify(data.user));

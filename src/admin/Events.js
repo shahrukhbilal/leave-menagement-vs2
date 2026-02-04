@@ -1,13 +1,19 @@
 import React, { useEffect, useState } from 'react';
 
 const Event = () => {
+  // Stores all events fetched from backend
   const [events, setEvents] = useState([]);
+
+  // Controls form input values for creating a new event
   const [formData, setFormData] = useState({
     title: '',
     start: '',
     end: ''
   });
 
+  // ----------------------------------
+  // Fetch all events from the backend
+  // ----------------------------------
   const fetchEvents = async () => {
     try {
       const res = await fetch('http://localhost:5000/api/events');
@@ -18,12 +24,23 @@ const Event = () => {
     }
   };
 
+  // ----------------------------------
+  // Handle input field value changes
+  // ----------------------------------
   const handleChange = (e) => {
-    setFormData(prev => ({ ...prev, [e.target.name]: e.target.value }));
+    // Update only the changed field while keeping others intact
+    setFormData(prev => ({
+      ...prev,
+      [e.target.name]: e.target.value
+    }));
   };
 
+  // ----------------------------------
+  // Submit new event to backend
+  // ----------------------------------
   const handleSubmit = async (e) => {
-    e.preventDefault();
+    e.preventDefault(); // Prevent page reload on form submit
+
     try {
       const res = await fetch('http://localhost:5000/api/events', {
         method: 'POST',
@@ -32,8 +49,13 @@ const Event = () => {
       });
 
       if (res.ok) {
+        // Give quick feedback to admin
         alert('✅ Event added!');
+
+        // Reset form after successful submission
         setFormData({ title: '', start: '', end: '' });
+
+        // Refresh event list to show newly added event
         fetchEvents();
       }
     } catch (err) {
@@ -41,6 +63,9 @@ const Event = () => {
     }
   };
 
+  // ----------------------------------
+  // Load events once when page mounts
+  // ----------------------------------
   useEffect(() => {
     fetchEvents();
   }, []);
@@ -48,6 +73,8 @@ const Event = () => {
   return (
     <div className="container mt-4">
       <h2>📌 Add New Event</h2>
+
+      {/* Event creation form */}
       <form onSubmit={handleSubmit} className="row g-3 mb-4">
         <div className="col-md-4">
           <input
@@ -60,6 +87,7 @@ const Event = () => {
             required
           />
         </div>
+
         <div className="col-md-3">
           <input
             type="datetime-local"
@@ -70,6 +98,7 @@ const Event = () => {
             required
           />
         </div>
+
         <div className="col-md-3">
           <input
             type="datetime-local"
@@ -80,11 +109,15 @@ const Event = () => {
             required
           />
         </div>
+
         <div className="col-md-2">
-          <button type="submit" className="btn btn-primary w-100">Add</button>
+          <button type="submit" className="btn btn-primary w-100">
+            Add
+          </button>
         </div>
       </form>
 
+      {/* Events listing table */}
       <h4>📋 All Events</h4>
       <table className="table table-bordered table-striped">
         <thead>
@@ -98,6 +131,7 @@ const Event = () => {
           {events.map((ev, i) => (
             <tr key={i}>
               <td>{ev.title}</td>
+              {/* Convert ISO date to readable local format */}
               <td>{new Date(ev.start).toLocaleString()}</td>
               <td>{new Date(ev.end).toLocaleString()}</td>
             </tr>
@@ -106,5 +140,6 @@ const Event = () => {
       </table>
     </div>
   );
-}
-export default Event
+};
+
+export default Event;
