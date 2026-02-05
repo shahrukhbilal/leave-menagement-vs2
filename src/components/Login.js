@@ -40,12 +40,8 @@ function Login() {
         body: JSON.stringify(formData) // Email & password send
       });
 
-      // Debug: data jo backend ko ja raha
-      console.log("Login data sending:", formData);
-
       // Backend response
       const data = await res.json();
-      console.log("Login response:", data);
 
       // Agar login successful ho aur token mile
       if (res.ok && data.token) {

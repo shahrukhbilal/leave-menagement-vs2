@@ -2,20 +2,31 @@ import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import './Form.css';
 
+/*
+  Register Component
+  ------------------
+  - New users ko register karta hai
+  - Employee ya Admin role select karne ka option deta hai
+  - Admin ke liye secret key required hoti hai
+  - Successful registration ke baad role-based navigation hoti hai
+*/
+
 function Register() {
   const navigate = useNavigate();
 
+  // 🧾 Form state (controlled inputs)
   const [formData, setFormData] = useState({
     name: "",
     email: "",
     password: "",
-    role: "employee",
-    secretKey: ""
+    role: "employee", // default role
+    secretKey: ""     // sirf admin ke liye
   });
 
+  // ❌ Error message state
   const [errorMessage, setErrorMessage] = useState("");
 
-  // 🔹 Handle Input Change
+  // 🔹 Handle input changes (all fields)
   const handleChange = (e) => {
     setFormData({
       ...formData,
@@ -23,12 +34,13 @@ function Register() {
     });
   };
 
-  // 🔹 Handle Submit
+  // 🔹 Handle form submit
   const handleSubmit = async (e) => {
     e.preventDefault();
     setErrorMessage("");
 
     try {
+      // 🌐 Send registration request to backend
       const res = await fetch("http://localhost:5000/api/auth/register", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
@@ -36,24 +48,24 @@ function Register() {
       });
 
       const data = await res.json();
-      
 
+      // ❌ Backend error handling
       if (!res.ok) {
         setErrorMessage(data.message || "Registration failed");
         return;
       }
 
+      // ✅ Success message
       alert("✅ Registration successful! Please login.");
 
-    
-      // 🔐 ROLE BASED NAVIGATION
+      // 🔐 Role-based navigation
       if (data.user?.role === "admin") {
-  navigate("/admin");
-} else {
-  navigate("/dashboard");
-}
+        navigate("/admin");
+      } else {
+        navigate("/dashboard");
+      }
 
-      // 🔄 Reset form
+      // 🔄 Reset form after successful registration
       setFormData({
         name: "",
         email: "",
@@ -78,9 +90,10 @@ function Register() {
           <strong>📝 Register</strong>
         </h3>
 
+        {/* 📋 Registration Form */}
         <form onSubmit={handleSubmit} autoComplete="off">
 
-          {/* Name */}
+          {/* 👤 Name */}
           <div className="mb-3">
             <label className="form-label"><strong>Name</strong></label>
             <input
@@ -94,7 +107,7 @@ function Register() {
             />
           </div>
 
-          {/* Email */}
+          {/* 📧 Email */}
           <div className="mb-3">
             <label className="form-label"><strong>Email address</strong></label>
             <input
@@ -109,7 +122,7 @@ function Register() {
             />
           </div>
 
-          {/* Password */}
+          {/* 🔒 Password */}
           <div className="mb-3">
             <label className="form-label"><strong>Password</strong></label>
             <input
@@ -124,7 +137,7 @@ function Register() {
             />
           </div>
 
-          {/* Role */}
+          {/* 🧑‍💼 Role Selection */}
           <div className="mb-3">
             <label className="form-label"><strong>Role</strong></label>
             <select
@@ -138,7 +151,7 @@ function Register() {
               <option value="admin">Admin</option>
             </select>
 
-            {/* Admin Secret Key */}
+            {/* 🔑 Admin Secret Key (only visible for admin) */}
             {formData.role === "admin" && (
               <input
                 type="text"
@@ -152,13 +165,14 @@ function Register() {
             )}
           </div>
 
-          {/* Error Message */}
+          {/* ❌ Error Message */}
           {errorMessage && (
             <div className="alert alert-danger mt-2">
               {errorMessage}
             </div>
           )}
 
+          {/* ✅ Submit Button */}
           <button type="submit" className="btn btn-success w-100 mt-3">
             Register
           </button>
